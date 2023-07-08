@@ -4,9 +4,9 @@ import { getClient } from "../lib/client";
 import { gql } from "@apollo/client";
 import { GET_DOG_BREEDS } from './graphql/queries'; 
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
+import {Query} from "../globalTypes"
 
-
-const query = gql`
+const query = `
  {
     dogBreedsCollection(limit:100){
       items{
@@ -21,14 +21,22 @@ const query = gql`
 //   console.log(loading, error, data, "data")
 //   return <main>hi</main>;
 // }
-
-const Dogs = ({data} ) => {
+type QueryDataProps = {
+  data:{
+    data:{
+      dogBreedsCollection:{
+        items:[{ dogBreedName: string }]
+      }
+    }
+  }
+};
+const Dogs = ({data}:QueryDataProps) => {
  
   console.log(data.data.dogBreedsCollection, "data");
   // return(<>hi</>)}
   return(
   <>{data.data.dogBreedsCollection.items.map((dog) => (
-    <div key={dog.id}>
+    <div key={dog.dogBreedName}>
       <h1>{dog.dogBreedName}</h1>
     </div>
   ))}</>
@@ -41,15 +49,7 @@ export default async function Page() {
     {
       method: "POST",
       body: JSON.stringify({
-        query:`
-        {
-           dogBreedsCollection(limit:100){
-             items{
-               dogBreedName
-             }
-           }
-         }
-       `,
+        query:query,
       }),
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-type Query ={
+export type Query ={
     asset(id: String!, preview: Boolean, locale: String): Asset
     assetCollection: () => AssetCollection;
 
