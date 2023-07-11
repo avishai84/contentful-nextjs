@@ -21,3 +21,19 @@ export type DogProps = {
       alt:string;
     }
   }
+
+  export type DataDogProps = {
+    data: {
+      dogBreeds: {
+        sys: {
+          id: string;
+        },
+        dogBreedName: string;
+        dogImage: {
+          url: string;
+          alt: string;
+          title: string;
+        }    
+      } 
+    }
+  }
