@@ -21,7 +21,7 @@ const Dogs = ({data}:QueryDataProps) => {
 
   return(
   <>{data.data.dogBreedsCollection.items.map((dog) => (
-    <div key={dog.sys.id}>
+    <div key={dog.sys.id} className={styles.description}>
       <h1>{dog.dogBreedName}</h1>
       <Link href={`/dog/${dog.sys.id}`}>{dog.dogBreedName}</Link>
     </div>

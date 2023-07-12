@@ -1,6 +1,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from 'next/link'
+import styles from '../../page.module.css'
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
 import {DataDogProps} from "../../types";
 
@@ -38,9 +39,9 @@ export default async function Page({ params }:Params ) {
       ).then((res) => res.json());
       const {data} = await response;
 
-      return <main>
-        DOGS: <Link href="/">Home</Link>
-         <div key={data.dogBreeds.sys.id}> 
+      return <main className={styles.card}>
+        <Link href="/" className={styles.code}>Home</Link>
+         <div key={data.dogBreeds.sys.id} > 
           <h1>{data.dogBreeds.dogBreedName}</h1> 
           <Image src={data.dogBreeds.dogImage.url} alt={data.dogBreeds.dogImage.alt} height="160" width="200" />
         </div>
