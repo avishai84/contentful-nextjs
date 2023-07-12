@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './page.module.css'
-import { getClient } from "../lib/client";
-import { gql } from "@apollo/client";
-import { GET_DOG_BREEDS } from './graphql/queries'; 
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
 import {QueryDataProps} from "./types"
 
@@ -15,7 +12,6 @@ const query = `
         sys{
           id
         }
-
       }
     }
   }
