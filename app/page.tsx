@@ -43,10 +43,6 @@ export default async function Page() {
     }
   ).then((res) => res.json());
   
-  return <main>
-    DOGS:
-    <Dogs data={data} />
-
-  </main>;
+  return <main><Dogs data={data} /></main>;
 }
 
