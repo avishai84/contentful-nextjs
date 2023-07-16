@@ -20,8 +20,14 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/app/*": ["app/*"],
+      // "@/*": ["./*"],
+      // "@/*": ["app/*"],
+      // "@/app/pages/*": ["pages/*"],
+      // "@/styles/*": ["styles/*"],
+      // "@/app/dog/*": ["app/dog/*"],
+      // "@/pages/*": ["app/pages/*"]
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["app/types.d.ts", "node_modules"]
