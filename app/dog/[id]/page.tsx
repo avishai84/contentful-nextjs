@@ -43,7 +43,7 @@ export default async function Page({ params }:Params ) {
         <Link href="/" className={styles.code}>Home</Link>
          <div key={data.dogBreeds.sys.id} > 
           <h1>{data.dogBreeds.dogBreedName}</h1> 
-          <Image src={data.dogBreeds.dogImage.url} alt={data.dogBreeds.dogImage.alt} height="160" width="200" />
+          <Image src={data.dogBreeds.dogImage.url} alt={data.dogBreeds.dogBreedName} height="160" width="200" />
         </div>
       </main>;
     }
