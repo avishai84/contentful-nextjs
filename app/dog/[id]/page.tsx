@@ -16,6 +16,7 @@ export default async function Page({ params }:Params ) {
             id
           }
           dogBreedName
+          breedOrigination
           dogImage {
             url
             title
@@ -43,6 +44,7 @@ export default async function Page({ params }:Params ) {
         <Link href="/" className={styles.code}>Home</Link>
          <div key={data.dogBreeds.sys.id} > 
           <h1>{data.dogBreeds.dogBreedName}</h1> 
+          <p>{data.dogBreeds.breedOrigination}</p>
           <Image src={data.dogBreeds.dogImage.url} alt={data.dogBreeds.dogBreedName} height="160" width="200" />
         </div>
       </main>;

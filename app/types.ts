@@ -29,6 +29,7 @@ export type DogProps = {
           id: string;
         },
         dogBreedName: string;
+        breedOrigination?: string;
         dogImage: {
           url: string;
           alt: string;
